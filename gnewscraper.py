@@ -2,15 +2,14 @@ from pygooglenews import GoogleNews
 from outputs import output_json
 import argparse
 
-
+# we use this argParse function to perse the arguments paersed through the command CLI
 def parse_args():
-	parser = argparse.ArgumentParser(description='Google News Scraper')
-	parser.add_argument('-k', '--keyword', default='top_news', help='Enter Keyword')
-	parser.add_argument('-n', '--name', default='output', help='json file name of where you would want result to be saved')
-	args = vars(parser.parse_args())
+    parser = argparse.ArgumentParser(description='Google News Scraper')
+    parser.add_argument('-k', '--keyword', default='top_news', help='Enter Keyword')
+    parser.add_argument('-n', '--name', default='output', help='json file name of where you would want result to be saved')
+    args = vars(parser.parse_args())
 
-	return search_news(args)
-
+    return search_news(args)
 
 def search_news(args):
     # default GoogleNews instance

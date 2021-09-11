@@ -11,8 +11,8 @@ def parse_args():
     parser.add_argument('-n', '--name', default='output', help='json file name of where you would want result to be saved')
     args = vars(parser.parse_args())
 
-    if args['topic'].strip() not in topics:
-        print(" key word must be any of {cars}")
+    if args['topic'].strip().upper() not in topics:
+        print(f" key word must be any of {topics}")
         return
 
     return search_news(args)
@@ -21,7 +21,7 @@ def search_news(args):
     # default GoogleNews instance
     gn = GoogleNews(lang='en', country='US')
 
-    topic = args['topic'].strip()
+    topic = args['topic'].strip().upper()
     name = args['name'].strip()
 
     print('scraping search word or phrase')
