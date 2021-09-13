@@ -24,9 +24,9 @@ def search_news(args):
         return output_json(top_news,name)
 
     print('scraping search word or phrase')
-    data = gn.search(keyword)
+    data = gn.search(keyword, when = '3h')
+    print(f'{len(data["entries"])}' + ' result returned')
     return output_json(data, name)
-
 
 if __name__ == '__main__':
     parse_args()
